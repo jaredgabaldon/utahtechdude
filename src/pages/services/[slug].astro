@@ -1,0 +1,89 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { servicePages } from "../../data/services";
+
+export function getStaticPaths() {
+  return servicePages.map((service) => ({
+    params: { slug: service.slug },
+    props: { service }
+  }));
+}
+
+const { service } = Astro.props;
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: service.title,
+    areaServed: "Utah",
+    provider: {
+      "@type": "LocalBusiness",
+      name: "Utah Tech Dude",
+      url: "https://utahtechdude.com"
+    },
+    description: service.description
+  }
+];
+---
+
+<BaseLayout
+  title={service.metaTitle}
+  description={service.description}
+  structuredData={structuredData}
+>
+  <main class="page-shell">
+    <section class="hero">
+      <div class="hero__copy">
+        <p class="eyebrow">Utah Tech Dude Services</p>
+        <h1>{service.title} in Utah</h1>
+        <p class="hero__lede">{service.intro}</p>
+        <div class="hero__actions">
+          <a class="button button--primary" href="/#contact">Book Help</a>
+          <a class="button button--secondary" href="/">Back Home</a>
+        </div>
+      </div>
+
+      <aside class="hero__card">
+        <p class="hero__card-label">People search for</p>
+        <ul>
+          {service.searchTerms.map((term: string) => (
+            <li>{term}</li>
+          ))}
+        </ul>
+      </aside>
+    </section>
+
+    <section class="panel panel--warm">
+      <div class="section-heading">
+        <p class="eyebrow">What You Get</p>
+        <h2>Practical support for setup, access, and confidence</h2>
+      </div>
+      <div class="highlight-grid">
+        {service.benefits.map((benefit: string) => (
+          <article class="highlight-card">
+            <h3>{service.shortTitle}</h3>
+            <p>{benefit}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="contact__copy">
+        <p class="eyebrow">Local Support</p>
+        <h2>Need {service.shortTitle.toLowerCase()} help at home?</h2>
+        <p>
+          Utah Tech Dude helps households with connected devices, account access,
+          setup steps, and day-to-day tech problems that are easier to solve in person.
+        </p>
+      </div>
+      <div class="contact__card">
+        <p class="contact__label">Update with real contact info</p>
+        <a href="tel:+18010000000">(801) 000-0000</a>
+        <a href="mailto:help@utahtechdude.com">help@utahtechdude.com</a>
+        <p>Serving homes across Utah.</p>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

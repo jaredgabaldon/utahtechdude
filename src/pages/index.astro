@@ -1,0 +1,241 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { servicePages } from "../data/services";
+
+const services = [
+  "Smart TV setup and streaming app installation",
+  "Smart watch setup, syncing, and troubleshooting",
+  "Alexa, Echo, and voice assistant setup",
+  "Apple Pay, digital wallet, and account support",
+  "Wi-Fi setup, reconnecting, and home network help",
+  "Password resets and account recovery guidance",
+  "App downloads, sign-ins, and device onboarding",
+  "Smart lights, switches, fans, and other connected devices"
+];
+
+const highlights = [
+  {
+    title: "Friendly in-home help",
+    description:
+      "Clear, patient setup support for the tech that should make life easier, not more frustrating."
+  },
+  {
+    title: "One call for many devices",
+    description:
+      "From TVs and phones to smart home gear, get one go-to local expert to help connect it all."
+  },
+  {
+    title: "Built for real households",
+    description:
+      "Simple, practical help for families, older adults, busy professionals, and anyone tired of confusing setup screens."
+  }
+];
+
+const process = [
+  "Tell me what device or setup issue you need help with.",
+  "We get your accounts, apps, Wi-Fi, and devices working together.",
+  "You get a simple walkthrough so you feel confident using everything."
+];
+
+const faqItems = [
+  {
+    question: "Do you help with smart TV and streaming setup?",
+    answer:
+      "Yes. Utah Tech Dude helps connect smart TVs, install streaming apps, sign into accounts, and make sure remotes and Wi-Fi are working correctly."
+  },
+  {
+    question: "Can you help with Wi-Fi, passwords, and account recovery?",
+    answer:
+      "Yes. Support includes reconnecting devices to Wi-Fi, helping with password resets, and walking through common account access problems."
+  },
+  {
+    question: "Do you set up smart home devices like lights and switches?",
+    answer:
+      "Yes. Smart lights, switches, fans, voice assistants, and other connected devices can be set up and linked together for simpler everyday use."
+  }
+];
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: "Utah Tech Dude",
+    url: "https://utahtechdude.com",
+    telephone: "+1-801-000-0000",
+    email: "help@utahtechdude.com",
+    areaServed: "Utah",
+    description:
+      "Home tech setup help in Utah for smart TVs, smart watches, Alexa, Apple Pay, Wi-Fi, password recovery, app setup, and smart home devices."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer
+      }
+    }))
+  }
+];
+---
+
+<BaseLayout
+  title="Utah Tech Dude | Home Tech Setup Help in Utah"
+  description="Utah Tech Dude provides home tech setup help in Utah for smart TVs, Alexa, Apple Pay, Wi-Fi, password recovery, app setup, and smart home devices."
+  structuredData={structuredData}
+>
+  <main class="page-shell">
+    <section class="hero">
+      <div class="hero__copy">
+        <p class="eyebrow">Utah Tech Dude</p>
+        <h1>Home tech setup help in Utah that feels simple, local, and stress-free.</h1>
+        <p class="hero__lede">
+          I help people across Utah get everyday tech working at home, from smart TVs
+          and Wi-Fi to Apple Pay, Alexa, password recovery, apps, and connected
+          devices like lights, switches, and fans.
+        </p>
+        <div class="hero__actions">
+          <a class="button button--primary" href="#contact">Book Help</a>
+          <a class="button button--secondary" href="#services">See Services</a>
+        </div>
+      </div>
+
+      <aside class="hero__card">
+        <p class="hero__card-label">Popular requests</p>
+        <ul>
+          <li>Streaming setup for new smart TVs</li>
+          <li>Recovering logins and passwords</li>
+          <li>Fixing Wi-Fi and reconnecting devices</li>
+          <li>Setting up Alexa and smart home controls</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="panel panel--warm" id="services">
+      <div class="section-heading">
+        <p class="eyebrow">Services</p>
+        <h2>Utah home tech support for the devices people use every day</h2>
+      </div>
+      <div class="service-grid">
+        {services.map((service) => (
+          <article class="service-card">
+            <span class="service-card__dot" aria-hidden="true"></span>
+            <p>{service}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="split-section">
+      <div class="section-heading">
+        <p class="eyebrow">Popular Services</p>
+        <h2>Search-friendly service pages built for local intent</h2>
+      </div>
+      <div class="highlight-grid">
+        {servicePages.map((service) => (
+          <article class="highlight-card">
+            <h3>
+              <a href={`/services/${service.slug}/`}>{service.shortTitle}</a>
+            </h3>
+            <p>{service.description}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="split-section">
+      <div class="section-heading">
+        <p class="eyebrow">Why People Call</p>
+        <h2>Tech support without the confusing jargon</h2>
+      </div>
+      <div class="highlight-grid">
+        {highlights.map((item) => (
+          <article class="highlight-card">
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="panel panel--warm">
+      <div class="section-heading">
+        <p class="eyebrow">Service Area</p>
+        <h2>Local home tech help for households across Utah</h2>
+      </div>
+      <div class="highlight-grid">
+        <article class="highlight-card">
+          <h3>For busy households</h3>
+          <p>
+            Get help setting up smart TVs, smart devices, apps, and Wi-Fi without
+            spending hours trying to figure out every menu and login prompt.
+          </p>
+        </article>
+        <article class="highlight-card">
+          <h3>For older adults and families</h3>
+          <p>
+            Patient guidance makes it easier to learn new devices, recover accounts,
+            and use home tech with confidence after the setup is complete.
+          </p>
+        </article>
+        <article class="highlight-card">
+          <h3>For connected homes</h3>
+          <p>
+            From Salt Lake area homes to other Utah communities, support is focused
+            on practical setup that keeps everyday devices working together.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel panel--dark">
+      <div class="section-heading section-heading--light">
+        <p class="eyebrow">How It Works</p>
+        <h2>Fast help from setup to confidence</h2>
+      </div>
+      <div class="process-list">
+        {process.map((step, index) => (
+          <article class="process-card">
+            <p class="process-card__number">0{index + 1}</p>
+            <p>{step}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="split-section">
+      <div class="section-heading">
+        <p class="eyebrow">FAQ</p>
+        <h2>Questions people ask before booking home tech help</h2>
+      </div>
+      <div class="highlight-grid">
+        {faqItems.map((item) => (
+          <article class="highlight-card">
+            <h3>{item.question}</h3>
+            <p>{item.answer}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="contact__copy">
+        <p class="eyebrow">Get Started</p>
+        <h2>Need help setting up something at home?</h2>
+        <p>
+          Reach out for Utah home tech help with smart devices, account access,
+          streaming, wireless setup, and everyday troubleshooting.
+        </p>
+      </div>
+      <div class="contact__card">
+        <p class="contact__label">Contact details here</p>
+        <a href="tel:+18010000000">(801) 000-0000</a>
+        <a href="mailto:help@utahtechdude.com">help@utahtechdude.com</a>
+        <p>Serving home tech customers across Utah.</p>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
