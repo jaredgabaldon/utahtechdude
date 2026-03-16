@@ -1,0 +1,74 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const packages = [
+  {
+    name: "Home Tech Setup",
+    price: "$99+",
+    description: "A focused visit for setting up a new device, app, TV, watch, speaker, printer, or account.",
+    items: ["Device setup", "App installs", "Wi-Fi connection", "Basic walkthrough"]
+  },
+  {
+    name: "Smart Home Setup",
+    price: "$149+",
+    description: "Best for multiple smart devices like lights, switches, plugs, fans, Alexa routines, and connected accessories.",
+    items: ["Device pairing", "Voice assistant setup", "App configuration", "Automation basics"]
+  },
+  {
+    name: "General Tech Help",
+    price: "$75/hr",
+    description: "Flexible troubleshooting for Wi-Fi issues, password recovery, syncing problems, account cleanup, and backup help.",
+    items: ["Troubleshooting", "Account help", "Streaming support", "Follow-up guidance"]
+  },
+  {
+    name: "Monthly Tech Care",
+    price: "$20-$40/mo",
+    description: "A recurring support option for people who want a trusted tech helper for new issues, questions, and light follow-up support.",
+    items: ["Priority email support", "Remote help", "Simple follow-ups", "Ongoing peace of mind"]
+  }
+];
+---
+
+<BaseLayout
+  title="Pricing for Home Tech Support in Utah | Utah Tech Dude"
+  description="Simple pricing for home tech support, smart home setup, Wi-Fi help, account recovery, backups, and device setup across Utah."
+>
+  <main class="page-shell">
+    <section class="hero">
+      <div class="hero__copy">
+        <p class="eyebrow">Pricing</p>
+        <h1>Simple pricing for home tech support in Utah</h1>
+        <p class="hero__lede">
+          Clear starting points help people understand what kind of support to book,
+          even when the exact issue changes from house to house.
+        </p>
+      </div>
+      <aside class="hero__card">
+        <p class="hero__card-label">Good fit for</p>
+        <ul>
+          <li>New device setup</li>
+          <li>Wi-Fi and streaming help</li>
+          <li>Smart home installation</li>
+          <li>Password and account issues</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="panel panel--warm">
+      <div class="section-heading">
+        <p class="eyebrow">Packages</p>
+        <h2>Starting points for common home tech jobs</h2>
+      </div>
+      <div class="highlight-grid">
+        {packages.map((pkg) => (
+          <article class="highlight-card">
+            <h3>{pkg.name}</h3>
+            <p><strong>{pkg.price}</strong></p>
+            <p>{pkg.description}</p>
+            <p>{pkg.items.join(" • ")}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  </main>
+</BaseLayout>

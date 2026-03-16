@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { servicePages } from "../data/services";
+import { locationPages, servicePages } from "../data/services";
 
 const services = [
   "Smart TV setup and streaming app installation",
@@ -10,7 +10,51 @@ const services = [
   "Wi-Fi setup, reconnecting, and home network help",
   "Password resets and account recovery guidance",
   "App downloads, sign-ins, and device onboarding",
-  "Smart lights, switches, fans, and other connected devices"
+  "Smart lights, switches, fans, and other connected devices",
+  "Printer setup and wireless printing help",
+  "Phone, tablet, and iPad setup",
+  "Photo backup and cloud sync setup",
+  "Mesh Wi-Fi and router setup",
+  "Parental controls and family device setup",
+  "Home office and video call setup",
+  "Scam cleanup and basic digital safety guidance",
+  "Ongoing remote or in-home tech support"
+];
+
+const serviceCategories = [
+  {
+    title: "Setup Services",
+    description:
+      "New-device onboarding for TVs, phones, tablets, smart watches, printers, streaming devices, and smart home gear.",
+    items: [
+      "Phone and tablet setup",
+      "Printer and wireless printing setup",
+      "Streaming device and smart TV setup",
+      "Smart watch pairing and syncing"
+    ]
+  },
+  {
+    title: "Troubleshooting Services",
+    description:
+      "Practical help when devices stop talking to each other, accounts get locked, or home tech starts acting up.",
+    items: [
+      "Wi-Fi and router troubleshooting",
+      "Password resets and account recovery",
+      "App sign-in and syncing issues",
+      "Smart device reconnection help"
+    ]
+  },
+  {
+    title: "Ongoing Support",
+    description:
+      "Services that create repeat business and make life easier for households that want a go-to tech helper.",
+    items: [
+      "Senior-friendly technology coaching",
+      "Monthly tech care support",
+      "Seasonal tech tune-ups",
+      "Move-in and reconnect service"
+    ]
+  }
 ];
 
 const highlights = [
@@ -61,11 +105,10 @@ const structuredData = [
     "@type": "LocalBusiness",
     name: "Utah Tech Dude",
     url: "https://utahtechdude.com",
-    telephone: "+1-801-000-0000",
     email: "help@utahtechdude.com",
     areaServed: "Utah",
     description:
-      "Home tech setup help in Utah for smart TVs, smart watches, Alexa, Apple Pay, Wi-Fi, password recovery, app setup, and smart home devices."
+      "Home tech setup help in Utah for smart TVs, smart watches, Alexa, Apple Pay, Wi-Fi, password recovery, app setup, printers, backups, and smart home devices."
   },
   {
     "@context": "https://schema.org",
@@ -83,23 +126,23 @@ const structuredData = [
 ---
 
 <BaseLayout
-  title="Utah Tech Dude | Home Tech Setup Help in Utah"
-  description="Utah Tech Dude provides home tech setup help in Utah for smart TVs, Alexa, Apple Pay, Wi-Fi, password recovery, app setup, and smart home devices."
+  title="Home Tech Support in Utah | Smart Home Setup, Wi-Fi Help, and Device Support"
+  description="Utah Tech Dude provides home tech support in Utah for smart home setup, Wi-Fi help, smart TVs, Alexa, password recovery, app setup, printers, backups, and device support."
   structuredData={structuredData}
 >
   <main class="page-shell">
     <section class="hero">
       <div class="hero__copy">
         <p class="eyebrow">Utah Tech Dude</p>
-        <h1>Home tech setup help in Utah that feels simple, local, and stress-free.</h1>
+        <h1>Home tech support in Utah that feels simple, local, and stress-free.</h1>
         <p class="hero__lede">
           I help people across Utah get everyday tech working at home, from smart TVs
-          and Wi-Fi to Apple Pay, Alexa, password recovery, apps, and connected
-          devices like lights, switches, and fans.
+          and Wi-Fi to Apple Pay, Alexa, password recovery, apps, printers, backups,
+          and connected devices like lights, switches, and fans.
         </p>
         <div class="hero__actions">
-          <a class="button button--primary" href="#contact">Book Help</a>
-          <a class="button button--secondary" href="#services">See Services</a>
+          <a class="button button--primary" href="/contact/">Book Help</a>
+          <a class="button button--secondary" href="/services/">See Services</a>
         </div>
       </div>
 
@@ -131,8 +174,24 @@ const structuredData = [
 
     <section class="split-section">
       <div class="section-heading">
-        <p class="eyebrow">Popular Services</p>
-        <h2>Search-friendly service pages built for local intent</h2>
+        <p class="eyebrow">Offerings</p>
+        <h2>Three easy ways to explain what you do</h2>
+      </div>
+      <div class="highlight-grid">
+        {serviceCategories.map((category) => (
+          <article class="highlight-card">
+            <h3>{category.title}</h3>
+            <p>{category.description}</p>
+            <p>{category.items.join(" • ")}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="split-section">
+      <div class="section-heading">
+        <p class="eyebrow">Service Pages</p>
+        <h2>Search-focused pages for the most common tech help needs</h2>
       </div>
       <div class="highlight-grid">
         {servicePages.map((service) => (
@@ -141,6 +200,23 @@ const structuredData = [
               <a href={`/services/${service.slug}/`}>{service.shortTitle}</a>
             </h3>
             <p>{service.description}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="split-section">
+      <div class="section-heading">
+        <p class="eyebrow">Location Pages</p>
+        <h2>Local landing pages for the Utah cities you want to reach</h2>
+      </div>
+      <div class="highlight-grid">
+        {locationPages.map((location) => (
+          <article class="highlight-card">
+            <h3>
+              <a href={`/locations/${location.slug}/`}>{location.city}</a>
+            </h3>
+            <p>{location.description}</p>
           </article>
         ))}
       </div>
@@ -161,36 +237,6 @@ const structuredData = [
       </div>
     </section>
 
-    <section class="panel panel--warm">
-      <div class="section-heading">
-        <p class="eyebrow">Service Area</p>
-        <h2>Local home tech help for households across Utah</h2>
-      </div>
-      <div class="highlight-grid">
-        <article class="highlight-card">
-          <h3>For busy households</h3>
-          <p>
-            Get help setting up smart TVs, smart devices, apps, and Wi-Fi without
-            spending hours trying to figure out every menu and login prompt.
-          </p>
-        </article>
-        <article class="highlight-card">
-          <h3>For older adults and families</h3>
-          <p>
-            Patient guidance makes it easier to learn new devices, recover accounts,
-            and use home tech with confidence after the setup is complete.
-          </p>
-        </article>
-        <article class="highlight-card">
-          <h3>For connected homes</h3>
-          <p>
-            From Salt Lake area homes to other Utah communities, support is focused
-            on practical setup that keeps everyday devices working together.
-          </p>
-        </article>
-      </div>
-    </section>
-
     <section class="panel panel--dark">
       <div class="section-heading section-heading--light">
         <p class="eyebrow">How It Works</p>
@@ -203,6 +249,27 @@ const structuredData = [
             <p>{step}</p>
           </article>
         ))}
+      </div>
+    </section>
+
+    <section class="panel panel--warm">
+      <div class="section-heading">
+        <p class="eyebrow">Planning Pages</p>
+        <h2>Pricing, FAQ, and contact pages that support conversions</h2>
+      </div>
+      <div class="highlight-grid">
+        <article class="highlight-card">
+          <h3><a href="/pricing/">Pricing</a></h3>
+          <p>Simple starting packages help people understand the difference between setup, smart home work, and general tech help.</p>
+        </article>
+        <article class="highlight-card">
+          <h3><a href="/faq/">FAQ</a></h3>
+          <p>Answering common questions adds trust, helps with long-tail search intent, and supports FAQ schema.</p>
+        </article>
+        <article class="highlight-card">
+          <h3><a href="/contact/">Contact</a></h3>
+          <p>An email-first contact page keeps your personal phone number private while still giving customers a clear next step.</p>
+        </article>
       </div>
     </section>
 
@@ -227,12 +294,11 @@ const structuredData = [
         <h2>Need help setting up something at home?</h2>
         <p>
           Reach out for Utah home tech help with smart devices, account access,
-          streaming, wireless setup, and everyday troubleshooting.
+          streaming, wireless setup, backups, and everyday troubleshooting.
         </p>
       </div>
       <div class="contact__card">
-        <p class="contact__label">Contact details here</p>
-        <a href="tel:+18010000000">(801) 000-0000</a>
+        <p class="contact__label">Contact by email</p>
         <a href="mailto:help@utahtechdude.com">help@utahtechdude.com</a>
         <p>Serving home tech customers across Utah.</p>
       </div>

@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { servicePages } from "../../data/services";
+import { locationPages, servicePages } from "../../data/services";
 
 export function getStaticPaths() {
   return servicePages.map((service) => ({
@@ -10,6 +10,7 @@ export function getStaticPaths() {
 }
 
 const { service } = Astro.props;
+const relatedLocations = locationPages.slice(0, 3);
 
 const structuredData = [
   {
@@ -39,15 +40,15 @@ const structuredData = [
         <h1>{service.title} in Utah</h1>
         <p class="hero__lede">{service.intro}</p>
         <div class="hero__actions">
-          <a class="button button--primary" href="/#contact">Book Help</a>
-          <a class="button button--secondary" href="/">Back Home</a>
+          <a class="button button--primary" href="/contact/">Book Help</a>
+          <a class="button button--secondary" href="/pricing/">View Pricing</a>
         </div>
       </div>
 
       <aside class="hero__card">
         <p class="hero__card-label">People search for</p>
         <ul>
-          {service.searchTerms.map((term: string) => (
+          {service.searchTerms.map((term) => (
             <li>{term}</li>
           ))}
         </ul>
@@ -60,10 +61,27 @@ const structuredData = [
         <h2>Practical support for setup, access, and confidence</h2>
       </div>
       <div class="highlight-grid">
-        {service.benefits.map((benefit: string) => (
+        {service.benefits.map((benefit) => (
           <article class="highlight-card">
             <h3>{service.shortTitle}</h3>
             <p>{benefit}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="split-section">
+      <div class="section-heading">
+        <p class="eyebrow">Service Areas</p>
+        <h2>Local pages that reinforce where help is available</h2>
+      </div>
+      <div class="highlight-grid">
+        {relatedLocations.map((location) => (
+          <article class="highlight-card">
+            <h3>
+              <a href={`/locations/${location.slug}/`}>{location.city} tech help</a>
+            </h3>
+            <p>{location.description}</p>
           </article>
         ))}
       </div>
@@ -79,10 +97,10 @@ const structuredData = [
         </p>
       </div>
       <div class="contact__card">
-        <p class="contact__label">Update with real contact info</p>
-        <a href="tel:+18010000000">(801) 000-0000</a>
+        <p class="contact__label">Contact by email</p>
         <a href="mailto:help@utahtechdude.com">help@utahtechdude.com</a>
         <p>Serving homes across Utah.</p>
+        <a class="button button--secondary" href="/faq/">Read FAQs</a>
       </div>
     </section>
   </main>

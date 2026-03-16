@@ -1,0 +1,67 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { servicePages } from "../../data/services";
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: servicePages.map((service, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: service.title,
+      url: `https://utahtechdude.com/services/${service.slug}/`
+    }))
+  }
+];
+---
+
+<BaseLayout
+  title="Home Tech Services in Utah | Utah Tech Dude"
+  description="Browse Utah Tech Dude services for smart home setup, Wi-Fi help, device setup, password recovery, Alexa setup, and tech help for seniors."
+  structuredData={structuredData}
+>
+  <main class="page-shell">
+    <section class="hero">
+      <div class="hero__copy">
+        <p class="eyebrow">Services</p>
+        <h1>Home tech services in Utah</h1>
+        <p class="hero__lede">
+          Browse the core services Utah Tech Dude offers for households that need help with
+          smart devices, Wi-Fi, accounts, streaming, and everyday setup frustrations.
+        </p>
+        <div class="hero__actions">
+          <a class="button button--primary" href="/contact/">Book Help</a>
+          <a class="button button--secondary" href="/pricing/">View Pricing</a>
+        </div>
+      </div>
+
+      <aside class="hero__card">
+        <p class="hero__card-label">Popular service types</p>
+        <ul>
+          <li>Smart home setup</li>
+          <li>Wi-Fi and network help</li>
+          <li>Password and account recovery</li>
+          <li>Device and app setup</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="panel panel--warm">
+      <div class="section-heading">
+        <p class="eyebrow">All Services</p>
+        <h2>Search-focused pages for the most common home tech needs</h2>
+      </div>
+      <div class="highlight-grid">
+        {servicePages.map((service) => (
+          <article class="highlight-card">
+            <h3>
+              <a href={`/services/${service.slug}/`}>{service.shortTitle}</a>
+            </h3>
+            <p>{service.description}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  </main>
+</BaseLayout>

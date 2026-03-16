@@ -1,0 +1,50 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { locationPages } from "../data/services";
+---
+
+<BaseLayout
+  title="Contact Utah Tech Dude | Schedule Home Tech Help"
+  description="Contact Utah Tech Dude for home tech support in Utah, including smart home setup, Wi-Fi help, TV setup, and account support."
+>
+  <main class="page-shell">
+    <section class="hero">
+      <div class="hero__copy">
+        <p class="eyebrow">Contact</p>
+        <h1>Schedule home tech help</h1>
+        <p class="hero__lede">
+          Reach out by email to ask about smart home setup, Wi-Fi help, password recovery,
+          smart TVs, device setup, and other everyday tech problems at home.
+        </p>
+        <div class="hero__actions">
+          <a class="button button--primary" href="mailto:help@utahtechdude.com">Email Utah Tech Dude</a>
+          <a class="button button--secondary" href="/pricing/">View Pricing</a>
+        </div>
+      </div>
+      <aside class="hero__card">
+        <p class="hero__card-label">Serving</p>
+        <ul>
+          {locationPages.map((location) => (
+            <li>{location.city}</li>
+          ))}
+        </ul>
+      </aside>
+    </section>
+
+    <section class="contact">
+      <div class="contact__copy">
+        <p class="eyebrow">Best Way to Reach Out</p>
+        <h2>Email-first contact keeps things simple and lowers spam</h2>
+        <p>
+          If you prefer not to publish a phone number, email is a solid primary contact method.
+          It still supports SEO as long as the site clearly explains services and service areas.
+        </p>
+      </div>
+      <div class="contact__card">
+        <p class="contact__label">Email</p>
+        <a href="mailto:help@utahtechdude.com">help@utahtechdude.com</a>
+        <p>Include your city, the device, and what kind of help you need.</p>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

@@ -1,0 +1,87 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { locationPages, servicePages } from "../../data/services";
+
+export function getStaticPaths() {
+  return locationPages.map((location) => ({
+    params: { slug: location.slug },
+    props: { location }
+  }));
+}
+
+const { location } = Astro.props;
+const featuredServices = servicePages.slice(0, 4);
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: "Utah Tech Dude",
+    areaServed: location.city,
+    url: `https://utahtechdude.com/locations/${location.slug}/`,
+    description: location.description
+  }
+];
+---
+
+<BaseLayout
+  title={location.metaTitle}
+  description={location.description}
+  structuredData={structuredData}
+>
+  <main class="page-shell">
+    <section class="hero">
+      <div class="hero__copy">
+        <p class="eyebrow">Utah Tech Dude Locations</p>
+        <h1>{location.title}</h1>
+        <p class="hero__lede">{location.intro}</p>
+        <div class="hero__actions">
+          <a class="button button--primary" href="/contact/">Schedule Help</a>
+          <a class="button button--secondary" href="/services/">See Services</a>
+        </div>
+      </div>
+
+      <aside class="hero__card">
+        <p class="hero__card-label">Nearby areas</p>
+        <ul>
+          {location.neighborhoods.map((area) => (
+            <li>{area}</li>
+          ))}
+        </ul>
+      </aside>
+    </section>
+
+    <section class="panel panel--warm">
+      <div class="section-heading">
+        <p class="eyebrow">In-Home Support</p>
+        <h2>Common services in {location.city}</h2>
+      </div>
+      <div class="highlight-grid">
+        {featuredServices.map((service) => (
+          <article class="highlight-card">
+            <h3>
+              <a href={`/services/${service.slug}/`}>{service.shortTitle}</a>
+            </h3>
+            <p>{service.description}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="contact">
+      <div class="contact__copy">
+        <p class="eyebrow">Need Help in {location.city}?</p>
+        <h2>Smart devices, Wi-Fi, accounts, and streaming support</h2>
+        <p>
+          Get local home tech support for smart TVs, Wi-Fi setup, password recovery,
+          smart home devices, and app installation in and around {location.city}.
+        </p>
+      </div>
+      <div class="contact__card">
+        <p class="contact__label">Contact by email</p>
+        <a href="mailto:help@utahtechdude.com">help@utahtechdude.com</a>
+        <p>Serving {location.city} and nearby communities.</p>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

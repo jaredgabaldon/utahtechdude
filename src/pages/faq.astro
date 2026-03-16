@@ -1,0 +1,69 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const faqs = [
+  ["How much does in-home tech help cost?", "Pricing depends on the job, but common visits can be framed as a single setup package, a smart home package, or hourly troubleshooting."],
+  ["Do you install smart home devices?", "Yes. Utah Tech Dude helps with smart lights, switches, fans, voice assistants, and connected device setup."],
+  ["Can you fix slow Wi-Fi?", "Yes. Help includes reconnecting devices, troubleshooting common router issues, and improving everyday home connectivity."],
+  ["Do you help recover lost passwords?", "Yes. Password resets and account login help are available for common home-tech services and apps."],
+  ["Do you work with seniors?", "Yes. Patient, practical in-home support is available for older adults and families who want a calmer setup experience."]
+];
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map(([question, answer]) => ({
+      "@type": "Question",
+      name: question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: answer
+      }
+    }))
+  }
+];
+---
+
+<BaseLayout
+  title="Frequently Asked Questions About Home Tech Support | Utah Tech Dude"
+  description="Answers about pricing, smart home setup, Wi-Fi help, password recovery, and in-home tech support across Utah."
+  structuredData={structuredData}
+>
+  <main class="page-shell">
+    <section class="hero">
+      <div class="hero__copy">
+        <p class="eyebrow">FAQ</p>
+        <h1>Frequently asked questions about home tech support</h1>
+        <p class="hero__lede">
+          These answers help set expectations for smart home setup, device support,
+          Wi-Fi help, and account recovery across Utah.
+        </p>
+      </div>
+      <aside class="hero__card">
+        <p class="hero__card-label">Need something else?</p>
+        <ul>
+          <li>Smart TV setup</li>
+          <li>Wi-Fi troubleshooting</li>
+          <li>App and account help</li>
+          <li>Tech help for seniors</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="panel panel--warm">
+      <div class="section-heading">
+        <p class="eyebrow">Answers</p>
+        <h2>Common questions before booking</h2>
+      </div>
+      <div class="highlight-grid">
+        {faqs.map(([question, answer]) => (
+          <article class="highlight-card">
+            <h3>{question}</h3>
+            <p>{answer}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  </main>
+</BaseLayout>
