@@ -9,8 +9,12 @@ export const GET: APIRoute = ({ site }) => {
     new URL("/pricing/", baseUrl).toString(),
     new URL("/faq/", baseUrl).toString(),
     new URL("/contact/", baseUrl).toString(),
-    ...servicePages.map((service) => new URL(`/services/${service.slug}/`, baseUrl).toString()),
-    ...locationPages.map((location) => new URL(`/locations/${location.slug}/`, baseUrl).toString())
+    ...servicePages.map((service) =>
+      new URL(`/services/${service.slug}/`, baseUrl).toString(),
+    ),
+    ...locationPages.map((location) =>
+      new URL(`/locations/${location.slug}/`, baseUrl).toString(),
+    ),
   ];
 
   const body = `<?xml version="1.0" encoding="UTF-8"?>
@@ -20,7 +24,7 @@ ${urls.map((url) => `  <url><loc>${url}</loc></url>`).join("\n")}
 
   return new Response(body, {
     headers: {
-      "Content-Type": "application/xml; charset=utf-8"
-    }
+      "Content-Type": "application/xml; charset=utf-8",
+    },
   });
 };

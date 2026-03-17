@@ -32,13 +32,13 @@ export const servicePages: ServicePage[] = [
     benefits: [
       "Set up smart lights, switches, fans, plugs, and routines",
       "Connect devices to Alexa and other apps",
-      "Make smart home controls easier for everyone in the house"
+      "Make smart home controls easier for everyone in the house",
     ],
     searchTerms: [
       "smart home setup in Utah",
       "smart lights and switches setup help",
-      "home automation setup support"
-    ]
+      "home automation setup support",
+    ],
   },
   {
     slug: "wifi-network-help",
@@ -52,13 +52,13 @@ export const servicePages: ServicePage[] = [
     benefits: [
       "Reconnect phones, tablets, TVs, printers, and smart devices",
       "Help identify common setup mistakes and signal issues",
-      "Make it easier for the whole household to get online"
+      "Make it easier for the whole household to get online",
     ],
     searchTerms: [
       "Wi-Fi help in Utah",
       "home internet setup support",
-      "reconnect devices to Wi-Fi"
-    ]
+      "reconnect devices to Wi-Fi",
+    ],
   },
   {
     slug: "device-setup",
@@ -72,13 +72,13 @@ export const servicePages: ServicePage[] = [
     benefits: [
       "Set up phones, tablets, smart watches, and connected accessories",
       "Install apps, sign in to services, and sync devices",
-      "Simplify the setup so the device is ready to use right away"
+      "Simplify the setup so the device is ready to use right away",
     ],
     searchTerms: [
       "device setup help in Utah",
       "app installation help",
-      "smart watch and phone setup support"
-    ]
+      "smart watch and phone setup support",
+    ],
   },
   {
     slug: "password-account-recovery",
@@ -92,13 +92,13 @@ export const servicePages: ServicePage[] = [
     benefits: [
       "Recover access to common apps and services",
       "Set up password management and organize account sign-ins",
-      "Reduce repeat lockouts with a simpler setup"
+      "Reduce repeat lockouts with a simpler setup",
     ],
     searchTerms: [
       "password recovery help in Utah",
       "password management help",
-      "account login support"
-    ]
+      "account login support",
+    ],
   },
   {
     slug: "smart-tv-printer-help",
@@ -112,13 +112,13 @@ export const servicePages: ServicePage[] = [
     benefits: [
       "Connect streaming services and sign in to favorite apps",
       "Pair TVs, printers, remotes, and Wi-Fi",
-      "Reduce confusing setup steps and everyday connection issues"
+      "Reduce confusing setup steps and everyday connection issues",
     ],
     searchTerms: [
       "smart TV setup in Utah",
       "printer setup help",
-      "TV and Wi-Fi connection support"
-    ]
+      "TV and Wi-Fi connection support",
+    ],
   },
   {
     slug: "tech-help-for-seniors",
@@ -132,13 +132,13 @@ export const servicePages: ServicePage[] = [
     benefits: [
       "Friendly one-on-one help with phones, tablets, and TVs",
       "Clear support for passwords, apps, and everyday settings",
-      "A calmer setup experience for seniors and their families"
+      "A calmer setup experience for seniors and their families",
     ],
     searchTerms: [
       "tech help for seniors in Utah",
       "phone and tablet help for seniors",
-      "patient in-home technology assistance"
-    ]
+      "patient in-home technology assistance",
+    ],
   },
   {
     slug: "alexa-setup-help",
@@ -152,14 +152,14 @@ export const servicePages: ServicePage[] = [
     benefits: [
       "Set up Echo devices and connect them to Wi-Fi",
       "Link music, reminders, and smart home routines",
-      "Pair Alexa with lights, switches, and other devices"
+      "Pair Alexa with lights, switches, and other devices",
     ],
     searchTerms: [
       "Alexa setup help in Utah",
       "Echo device setup support",
-      "connect Alexa to smart home devices"
-    ]
-  }
+      "connect Alexa to smart home devices",
+    ],
+  },
 ];
 
 export const locationPages: LocationPage[] = [
@@ -172,7 +172,7 @@ export const locationPages: LocationPage[] = [
       "In-home tech support in Salt Lake City for smart home setup, Wi-Fi help, smart TVs, password recovery, and everyday device setup.",
     intro:
       "Utah Tech Dude provides in-home tech support in Salt Lake City for households that want smart devices, Wi-Fi, apps, and accounts working without the stress.",
-    neighborhoods: ["Sugar House", "The Avenues", "Downtown", "Millcreek"]
+    neighborhoods: ["Sugar House", "The Avenues", "Downtown", "Millcreek"],
   },
   {
     slug: "bountiful-tech-help",
@@ -183,7 +183,12 @@ export const locationPages: LocationPage[] = [
       "Home tech support in Bountiful for smart home setup, Wi-Fi troubleshooting, password help, smart TVs, and device setup.",
     intro:
       "Get practical in-home tech help in Bountiful for streaming devices, Wi-Fi issues, account setup, and smart home gear.",
-    neighborhoods: ["Woods Cross", "North Salt Lake", "Centerville", "Val Verda"]
+    neighborhoods: [
+      "Woods Cross",
+      "North Salt Lake",
+      "Centerville",
+      "Val Verda",
+    ],
   },
   {
     slug: "layton-tech-help",
@@ -194,7 +199,7 @@ export const locationPages: LocationPage[] = [
       "Layton home tech support for smart TVs, Alexa, Wi-Fi, app setup, password recovery, and connected home devices.",
     intro:
       "Utah Tech Dude helps Layton households get everyday technology set up and working, from smart TVs and Wi-Fi to apps and smart home devices.",
-    neighborhoods: ["Kaysville", "Clearfield", "South Weber", "Syracuse"]
+    neighborhoods: ["Kaysville", "Clearfield", "South Weber", "Syracuse"],
   },
   {
     slug: "ogden-tech-help",
@@ -205,7 +210,12 @@ export const locationPages: LocationPage[] = [
       "In-home tech support in Ogden for Wi-Fi setup, smart home devices, streaming setup, device onboarding, and account help.",
     intro:
       "Ogden-area families can get straightforward in-home help for connected devices, Wi-Fi, account access, and smart home setup.",
-    neighborhoods: ["South Ogden", "North Ogden", "Riverdale", "Washington Terrace"]
+    neighborhoods: [
+      "South Ogden",
+      "North Ogden",
+      "Riverdale",
+      "Washington Terrace",
+    ],
   },
   {
     slug: "park-city-tech-help",
@@ -216,6 +226,11 @@ export const locationPages: LocationPage[] = [
       "Park City home tech support for smart device setup, Wi-Fi troubleshooting, TV streaming help, and account recovery.",
     intro:
       "From vacation homes to full-time residences, Park City households can get help setting up and managing home technology with less hassle.",
-    neighborhoods: ["Kimball Junction", "Jeremy Ranch", "Prospector", "Silver Summit"]
-  }
+    neighborhoods: [
+      "Kimball Junction",
+      "Jeremy Ranch",
+      "Prospector",
+      "Silver Summit",
+    ],
+  },
 ];
