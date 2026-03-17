@@ -86,17 +86,17 @@ export const servicePages: ServicePage[] = [
     shortTitle: "Password Recovery",
     metaTitle: "Password Recovery Help in Utah | Utah Tech Dude",
     description:
-      "Friendly help with password resets, account recovery, app sign-ins, and digital wallet access for common home tech services.",
+      "Friendly help with password management, password resets, account recovery, app sign-ins, and digital wallet access for common home tech services.",
     intro:
       "If you are locked out of an account or stuck in a reset loop, get calm guidance through password recovery, login cleanup, and account setup.",
     benefits: [
       "Recover access to common apps and services",
-      "Reset passwords and organize account sign-ins",
+      "Set up password management and organize account sign-ins",
       "Reduce repeat lockouts with a simpler setup"
     ],
     searchTerms: [
       "password recovery help in Utah",
-      "help resetting app passwords",
+      "password management help",
       "account login support"
     ]
   },
